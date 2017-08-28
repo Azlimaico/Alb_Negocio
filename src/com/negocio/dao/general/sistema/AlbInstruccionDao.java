@@ -5,10 +5,14 @@
  */
 package com.negocio.dao.general.sistema;
 
+import com.persistencia.general.sistema.AlbInstruccion;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbInstruccionDao {
+    public List<AlbInstruccion> listarInstruccion();
     
 }

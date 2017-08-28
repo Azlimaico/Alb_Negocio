@@ -5,10 +5,14 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbFamilia;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbFamiliaServicio {
+    public List<AlbFamilia> listarFamilia();
     
 }

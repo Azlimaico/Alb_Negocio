@@ -5,10 +5,14 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbDiscapacidad;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbDiscapacidadServicio {
+    public List<AlbDiscapacidad> listarDiscapacidad();
     
 }

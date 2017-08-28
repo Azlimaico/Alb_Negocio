@@ -5,10 +5,20 @@
  */
 package com.negocio.servicio.damnificado;
 
+import com.persistencia.damnificado.AlbDamnificado;
+import com.persistencia.general.sistema.AlbEstadoCivil;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbDamnificadoServicio {
+
+    public List<AlbDamnificado> listarDamnificado();
+
+    public void guardarDamnificado(List<AlbDamnificado> lista);
     
+    public void guardarEliminarDamnificado(AlbDamnificado segDamnificado);
+
 }

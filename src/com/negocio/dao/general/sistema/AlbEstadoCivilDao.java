@@ -5,10 +5,14 @@
  */
 package com.negocio.dao.general.sistema;
 
+import com.persistencia.general.sistema.AlbEstadoCivil;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbEstadoCivilDao {
+    public List<AlbEstadoCivil> listarEstadoCivil();
     
 }

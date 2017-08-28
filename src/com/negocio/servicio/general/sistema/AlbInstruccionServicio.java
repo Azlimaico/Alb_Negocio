@@ -5,10 +5,13 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbInstruccion;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbInstruccionServicio {
-    
+     public List<AlbInstruccion> listarInstruccion();
 }

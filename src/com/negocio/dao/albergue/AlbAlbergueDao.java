@@ -14,9 +14,11 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbAlbergueDao {
+
     public List<AlbAlbergue> listarAlbergue();
-     public void guardarAlbergue(AlbAlbergue albAlbergue);
-      public List<AlbProvincia> listarItemsProvincia(Long IdSeleccion, String provincia);
-     
+
+    public void guardarAlbergue(AlbAlbergue albAlbergue);
+
+    public List<AlbProvincia> listarItemsProvincia(Long IdSeleccion, String provincia);
 
 }

@@ -5,10 +5,18 @@
  */
 package com.negocio.dao.damnificado;
 
+import com.persistencia.damnificado.AlbDamnificado;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbDamnificadoDao {
-    
+
+    public List<AlbDamnificado> listarDamnificado();
+
+    public void guardarDamnificado(AlbDamnificado albDamnificado);
+
+    public void guardarEliminarDamnificado(AlbDamnificado albDamnificado);
 }

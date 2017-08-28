@@ -5,10 +5,14 @@
  */
 package com.negocio.dao.general.sistema;
 
+import com.persistencia.general.sistema.AlbFamilia;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbFamiliaDao {
+     public List<AlbFamilia> listarFamilia();
     
 }

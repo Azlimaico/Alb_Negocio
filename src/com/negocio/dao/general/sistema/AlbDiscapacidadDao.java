@@ -5,10 +5,14 @@
  */
 package com.negocio.dao.general.sistema;
 
+import com.persistencia.general.sistema.AlbDiscapacidad;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbDiscapacidadDao {
     
+    public List<AlbDiscapacidad> listarDiscapacidad();
 }

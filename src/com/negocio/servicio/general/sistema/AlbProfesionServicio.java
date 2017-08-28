@@ -5,10 +5,13 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbProfesion;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbProfesionServicio {
-    
+    public List<AlbProfesion> listarProfesion();
 }

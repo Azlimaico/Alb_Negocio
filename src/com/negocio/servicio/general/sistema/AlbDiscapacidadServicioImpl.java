@@ -5,10 +5,41 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.negocio.dao.general.sistema.AlbDiscapacidadDao;
+import com.persistencia.general.sistema.AlbDiscapacidad;
+import java.io.Serializable;
+import java.util.List;
+import org.jboss.logging.Logger;
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  *
  * @author Zulay
  */
-public class AlbDiscapacidadServicioImpl {
-    
+public class AlbDiscapacidadServicioImpl implements AlbDiscapacidadServicio, Serializable {
+
+    private static final long serialVersionUID = 1L;
+    private static Logger LOG = Logger.getLogger(AlbDiscapacidadServicioImpl.class);
+    AlbDiscapacidadDao albDiscapacidadDao;
+
+    @Transactional(readOnly = false)
+    @Override
+    public List<AlbDiscapacidad> listarDiscapacidad() {
+        try {
+            return getAlbDiscapacidadDao().listarDiscapacidad();
+
+        } catch (Exception ex) {
+            LOG.error("Error: " + ex.getMessage());
+            return null;
+        }
+    }
+
+    public AlbDiscapacidadDao getAlbDiscapacidadDao() {
+        return albDiscapacidadDao;
+    }
+
+    public void setAlbDiscapacidadDao(AlbDiscapacidadDao albDiscapacidadDao) {
+        this.albDiscapacidadDao = albDiscapacidadDao;
+    }
+
 }

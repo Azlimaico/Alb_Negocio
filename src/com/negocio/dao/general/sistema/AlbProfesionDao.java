@@ -5,10 +5,14 @@
  */
 package com.negocio.dao.general.sistema;
 
+import com.persistencia.general.sistema.AlbProfesion;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbProfesionDao {
+     public List<AlbProfesion> listarProfesion();
     
 }

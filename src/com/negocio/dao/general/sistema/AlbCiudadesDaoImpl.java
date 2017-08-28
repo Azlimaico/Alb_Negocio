@@ -105,11 +105,12 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
 
             LOG.error("Error: Ya Existe el Albergue" + ex.getMessage());
 
-        }}
+        }
+    }
 
     @Override
     public List<AlbAlbergue> listarSegUsuario() {
-       try {
+        try {
             List list = sessionFactory
                     .getCurrentSession().createQuery(" select su from AlbAlbergue su "
                             + " inner join fetch su.albProvincia sp "
@@ -118,12 +119,13 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
-        }}
+        }
+    }
 
     @Override
     public List<AlbCanton> listarCantonCmbx(Long IsSeleccionCO) {
-         try {
-             List list = sessionFactory
+        try {
+            List list = sessionFactory
                     .getCurrentSession().createQuery(" select canton from AlbCanton canton "
                             + " where canton.albProvincia.proId  ='"
                             + IsSeleccionCO + "' and canton.canEstado=1").list();
@@ -134,11 +136,10 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
             return null;
         }
     }
-    
 
     @Override
     public List<AlbParroquia> listarParroquiaCmbx(Long IsSeleccionCanton) {
-       try {
+        try {
             List list = sessionFactory
                     .getCurrentSession().createQuery(" select parroquia from AlbParroquia parroquia "
                             + " where parroquia.albCanton.canId  ='"
@@ -148,6 +149,7 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
-        }}
+        }
+    }
 
-   }
+}
