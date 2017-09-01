@@ -5,6 +5,7 @@
  */
 package com.negocio.dao.damnificado;
 
+import com.persistencia.albergue.DamnificadoAlbergue;
 import com.persistencia.damnificado.AlbDamnificado;
 import java.io.Serializable;
 import java.util.List;
@@ -69,6 +70,15 @@ public class AlbDamnificadoDaoImpl implements AlbDamnificadoDao, Serializable {
 
             LOG.error("Error: Ya Existe el Albergue" + ex.getMessage());
 
-        }}
+        }
+    }
 
+    @Override
+    public void guardarDamnificadoAlbergue(DamnificadoAlbergue damnificadoAlbergue) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(damnificadoAlbergue);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        }
+    }
 }

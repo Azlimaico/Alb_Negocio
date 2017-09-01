@@ -5,6 +5,7 @@
  */
 package com.negocio.dao.damnificado;
 
+import com.persistencia.albergue.DamnificadoAlbergue;
 import com.persistencia.damnificado.AlbDamnificado;
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface AlbDamnificadoDao {
     public void guardarDamnificado(AlbDamnificado albDamnificado);
 
     public void guardarEliminarDamnificado(AlbDamnificado albDamnificado);
+    
+    public void guardarDamnificadoAlbergue(DamnificadoAlbergue damnificadoAlbergue);
 }
