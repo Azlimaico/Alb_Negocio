@@ -5,6 +5,7 @@
  */
 package com.negocio.servicio.damnificado;
 
+import com.persistencia.albergue.AlbAlbergue;
 import com.persistencia.damnificado.AlbDamnificado;
 import com.persistencia.general.sistema.AlbEstadoCivil;
 import java.util.List;
@@ -21,6 +22,6 @@ public interface AlbDamnificadoServicio {
 
     public void guardarEliminarDamnificado(AlbDamnificado segDamnificado);
 
-    public void guardarDamnificadoAlbergue(List<AlbDamnificado> lista);
+    public void guardarDamnificadoAlbergue(List<AlbAlbergue> lista);
 
 }

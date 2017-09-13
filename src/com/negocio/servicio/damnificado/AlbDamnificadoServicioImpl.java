@@ -6,6 +6,7 @@
 package com.negocio.servicio.damnificado;
 
 import com.negocio.dao.damnificado.AlbDamnificadoDao;
+import com.persistencia.albergue.AlbAlbergue;
 import com.persistencia.damnificado.AlbDamnificado;
 import java.io.Serializable;
 import java.util.List;
@@ -68,9 +69,9 @@ public class AlbDamnificadoServicioImpl implements AlbDamnificadoServicio, Seria
     
     @Transactional
     @Override
-    public void guardarDamnificadoAlbergue(List<AlbDamnificado> lista) {
+    public void guardarDamnificadoAlbergue(List<AlbAlbergue> lista) {
        try {
-            for (AlbDamnificado obje : lista) {
+            for (AlbAlbergue obje : lista) {
                 getAlbDamnificadoDao().guardarDamnificadoAlbergue(obje);
             }
         } catch (HibernateException ex) {

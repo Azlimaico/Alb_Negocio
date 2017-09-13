@@ -5,6 +5,7 @@
  */
 package com.negocio.dao.damnificado;
 
+import com.persistencia.albergue.AlbAlbergue;
 import com.persistencia.damnificado.AlbDamnificado;
 import java.io.Serializable;
 import java.util.List;
@@ -73,7 +74,7 @@ public class AlbDamnificadoDaoImpl implements AlbDamnificadoDao, Serializable {
     }
 
     @Override
-    public void guardarDamnificadoAlbergue(AlbDamnificado damnificadoAlbergue) {
+    public void guardarDamnificadoAlbergue(AlbAlbergue damnificadoAlbergue) {
         try {
             sessionFactory.getCurrentSession().saveOrUpdate(damnificadoAlbergue);
         } catch (HibernateException ex) {

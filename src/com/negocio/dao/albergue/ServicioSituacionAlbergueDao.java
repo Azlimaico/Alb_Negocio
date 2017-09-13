@@ -5,10 +5,14 @@
  */
 package com.negocio.dao.albergue;
 
+import com.persistencia.albergue.ServicioSituacionAlbergue;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface ServicioSituacionAlbergueDao {
+    public List<ServicioSituacionAlbergue> listarAlbergue();
     
 }
