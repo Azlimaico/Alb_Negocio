@@ -13,6 +13,6 @@ import java.util.List;
  * @author Zulay
  */
 public interface ServicioSituacionAlbergueDao {
-    public List<ServicioSituacionAlbergue> listarAlbergue();
+    public List<ServicioSituacionAlbergue> listarServicioSituacionAlbergue();
     
 }

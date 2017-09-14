@@ -5,10 +5,13 @@
  */
 package com.negocio.servicio.albergue;
 
+import com.persistencia.albergue.ServicioSituacionAlbergue;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface ServicioSituacionAlbergueServicio {
-    
+    public List<ServicioSituacionAlbergue> listarServicioSituacionAlbergue();
 }

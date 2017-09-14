@@ -26,21 +26,28 @@ public class ServicioSituacionAlbergueDaoImpl implements ServicioSituacionAlberg
     private SessionFactory sessionFactory;
 
     @Override
-    public List<ServicioSituacionAlbergue> listarAlbergue() {
-         try {
+    public List<ServicioSituacionAlbergue> listarServicioSituacionAlbergue() {
+        try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT lab FROM AlbAlbergue lab "
-                            + "JOIN fetch lab.albCanton canton "
-                            + "JOIN fetch lab.albParroquia parroquia "
-                            + "JOIN fetch lab.albProvincia provincia "
-                            + "JOIN fetch lab.albAvanceImplementacion avanceImplementacion"
-                            + "  WHERE  lab.albEstado = '" + 1 + "' order by lab.albId desc").list();
+                    .getCurrentSession().createQuery("SELECT serSit FROM ServicioSituacionAlbergue serSit "
+                            + "JOIN fetch serSit.albAlbergue albergue "
+                            + "JOIN fetch serSit.albServicio servicio "
+                            + "JOIN fetch servicio.albEmpresa empresa "
+                            + "JOIN fetch empresa.albTipoEmpresa tipoEmpresa "
+                            + "  WHERE serSit.serAlbEstado = '" + 1 + "' order by serSit.serAlbId desc").list();
             return list;
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
-        }}
+        }
+    }
 
-   
-    
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
 }

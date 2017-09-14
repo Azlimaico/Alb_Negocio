@@ -5,10 +5,13 @@
  */
 package com.negocio.servicio.albergue.servicio.basico;
 
+import com.persistencia.albergue.servicio.AlbSituacion;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbSituacionServicio {
-    
+    public List<AlbSituacion> listarAlbSituacion();
 }
