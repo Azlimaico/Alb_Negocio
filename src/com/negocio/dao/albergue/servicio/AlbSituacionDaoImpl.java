@@ -31,6 +31,8 @@ public class AlbSituacionDaoImpl implements AlbSituacionDao, Serializable {
             List list = sessionFactory
                     .getCurrentSession().createQuery("SELECT situacion FROM AlbSituacion situacion "
                             + "JOIN fetch situacion.servicioSituacionAlbergue serSitAlb "
+                            + "JOIN fetch serSitAlb.albServicio servicio "
+                            + "JOIN fetch servicio.albEmpresa empresa "
                             + "  WHERE situacion.sitEstado = '" + 1 + "' order by situacion.sitId desc").list();
             return list;
         } catch (HibernateException ex) {
