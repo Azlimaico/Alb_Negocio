@@ -6,6 +6,7 @@
 package com.negocio.dao.albergue.servicio;
 
 import com.persistencia.albergue.servicio.AlbSituacion;
+import com.persistencia.general.sistema.AlbTipoEmpresa;
 import java.io.Serializable;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -33,6 +34,7 @@ public class AlbSituacionDaoImpl implements AlbSituacionDao, Serializable {
                             + "JOIN fetch situacion.servicioSituacionAlbergue serSitAlb "
                             + "JOIN fetch serSitAlb.albServicio servicio "
                             + "JOIN fetch servicio.albEmpresa empresa "
+                            + "JOIN fetch empresa.albTipoEmpresa tipoEmpresa "
                             + "  WHERE situacion.sitEstado = '" + 1 + "' order by situacion.sitId desc").list();
             return list;
         } catch (HibernateException ex) {
@@ -48,7 +50,19 @@ public class AlbSituacionDaoImpl implements AlbSituacionDao, Serializable {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    
-    
+
+    @Override
+    public List<AlbTipoEmpresa> listarTipoEmpresa() {
+        try {
+            List list = sessionFactory
+                    .getCurrentSession().createQuery("SELECT tipo FROM AlbTipoEmpresa tipo"
+                    + "  WHERE  tipo.tieEstado = '" + 1 + "' order by tipo.tieId desc").list();
+            return list;
+
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            return null;
+        }
+    }
 
 }

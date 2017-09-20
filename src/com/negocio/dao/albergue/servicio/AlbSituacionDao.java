@@ -6,6 +6,7 @@
 package com.negocio.dao.albergue.servicio;
 
 import com.persistencia.albergue.servicio.AlbSituacion;
+import com.persistencia.general.sistema.AlbTipoEmpresa;
 import java.util.List;
 
 /**
@@ -14,4 +15,6 @@ import java.util.List;
  */
 public interface AlbSituacionDao {
     public List<AlbSituacion> listarAlbSituacion();
+    
+    public List<AlbTipoEmpresa> listarTipoEmpresa();
 }

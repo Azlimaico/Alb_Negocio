@@ -6,6 +6,7 @@
 package com.negocio.servicio.albergue.servicio.basico;
 
 import com.persistencia.albergue.servicio.AlbSituacion;
+import com.persistencia.general.sistema.AlbTipoEmpresa;
 import java.util.List;
 
 /**
@@ -14,4 +15,5 @@ import java.util.List;
  */
 public interface AlbSituacionServicio {
     public List<AlbSituacion> listarAlbSituacion();
+    public List<AlbTipoEmpresa> listarTipoEmpresa();
 }

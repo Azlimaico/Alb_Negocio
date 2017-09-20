@@ -7,6 +7,7 @@ package com.negocio.servicio.albergue.servicio.basico;
 
 import com.negocio.dao.albergue.servicio.AlbSituacionDao;
 import com.persistencia.albergue.servicio.AlbSituacion;
+import com.persistencia.general.sistema.AlbTipoEmpresa;
 import java.io.Serializable;
 import java.util.List;
 import org.jboss.logging.Logger;
@@ -41,6 +42,17 @@ public AlbSituacionDao getAlbSituacionDao() {
     public void setAlbSituacionDao(AlbSituacionDao albSituacionDao) {
         this.albSituacionDao = albSituacionDao;
     }
+    
+    @Transactional(readOnly = false)
+    @Override
+    public List<AlbTipoEmpresa> listarTipoEmpresa() {
+        try {
+            return getAlbSituacionDao().listarTipoEmpresa();
+
+        } catch (Exception ex) {
+            LOG.error("Error: " + ex.getMessage());
+            return null;
+        }}
     
     
 }
