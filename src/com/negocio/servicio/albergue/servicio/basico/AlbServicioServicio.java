@@ -7,6 +7,7 @@ package com.negocio.servicio.albergue.servicio.basico;
 
 import com.persistencia.albergue.ServicioSituacionAlbergue;
 import com.persistencia.albergue.servicio.AlbServicio;
+import com.persistencia.albergue.servicio.AlbSituacion;
 import com.persistencia.general.sistema.AlbEmpresa;
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface AlbServicioServicio {
     public void guardarServicio(List<AlbServicio> lista);
     
     public void guardarServicioSituacionAlbergue(List<ServicioSituacionAlbergue> listaServicioSituacionAlbergue);
+    
+    public void guardarSituacion(List<AlbSituacion> listaSituacion);
 }

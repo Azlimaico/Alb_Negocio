@@ -8,6 +8,7 @@ package com.negocio.servicio.albergue.servicio.basico;
 import com.negocio.dao.albergue.servicio.AlbServicioDao;
 import com.persistencia.albergue.ServicioSituacionAlbergue;
 import com.persistencia.albergue.servicio.AlbServicio;
+import com.persistencia.albergue.servicio.AlbSituacion;
 import com.persistencia.general.sistema.AlbEmpresa;
 import java.io.Serializable;
 import java.util.List;
@@ -76,6 +77,19 @@ public class AlbServicioServicioImpl implements AlbServicioServicio, Serializabl
         try {
             for (ServicioSituacionAlbergue obje : listaServicioSituacionAlbergue) {
                 getAlbServicioDao().guardarServicioSituacionAlbergue(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+    
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarSituacion(List<AlbSituacion> listaSituacion) {
+    try {
+            for (AlbSituacion obje : listaSituacion) {
+                getAlbServicioDao().guardarSituacion(obje);
             }
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
