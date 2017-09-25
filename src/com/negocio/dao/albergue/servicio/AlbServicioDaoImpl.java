@@ -5,7 +5,9 @@
  */
 package com.negocio.dao.albergue.servicio;
 
+import com.persistencia.albergue.ServicioSituacionAlbergue;
 import com.persistencia.albergue.servicio.AlbServicio;
+import com.persistencia.general.sistema.AlbEmpresa;
 import java.io.Serializable;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -47,6 +49,32 @@ public class AlbServicioDaoImpl implements AlbServicioDao, Serializable {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-    
-    
+
+    @Override
+    public void guardarServicio(AlbServicio albServicio) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albServicio);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        }
+    }
+
+    @Override
+    public void guardarEmpresa(AlbEmpresa albEmpresa) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albEmpresa);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        }
+    }
+
+    @Override
+    public void guardarServicioSituacionAlbergue(ServicioSituacionAlbergue servicioSituacionAlbergue) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(servicioSituacionAlbergue);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        }
+    }
+
 }

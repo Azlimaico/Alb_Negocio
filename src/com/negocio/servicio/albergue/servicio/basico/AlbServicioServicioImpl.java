@@ -6,9 +6,12 @@
 package com.negocio.servicio.albergue.servicio.basico;
 
 import com.negocio.dao.albergue.servicio.AlbServicioDao;
+import com.persistencia.albergue.ServicioSituacionAlbergue;
 import com.persistencia.albergue.servicio.AlbServicio;
+import com.persistencia.general.sistema.AlbEmpresa;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.jboss.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,7 +43,44 @@ public class AlbServicioServicioImpl implements AlbServicioServicio, Serializabl
     public void setAlbServicioDao(AlbServicioDao albServicioDao) {
         this.albServicioDao = albServicioDao;
     }
-    
-    
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarServicio(List<AlbServicio> lista) {
+        try {
+            for (AlbServicio obje : lista) {
+                getAlbServicioDao().guardarServicio(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarEmpresa(List<AlbEmpresa> lista) {
+        try {
+            for (AlbEmpresa obje : lista) {
+                getAlbServicioDao().guardarEmpresa(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarServicioSituacionAlbergue(List<ServicioSituacionAlbergue> listaServicioSituacionAlbergue) {
+        try {
+            for (ServicioSituacionAlbergue obje : listaServicioSituacionAlbergue) {
+                getAlbServicioDao().guardarServicioSituacionAlbergue(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
 
 }

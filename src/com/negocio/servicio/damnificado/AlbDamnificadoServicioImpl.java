@@ -56,7 +56,7 @@ public class AlbDamnificadoServicioImpl implements AlbDamnificadoServicio, Seria
         this.albDamnificadoDao = albDamnificadoDao;
     }
 
-    @Transactional
+    @Transactional(readOnly = false)
     @Override
     public void guardarEliminarDamnificado(AlbDamnificado segDamnificado) {
         try {
@@ -66,19 +66,18 @@ public class AlbDamnificadoServicioImpl implements AlbDamnificadoServicio, Seria
 
         }
     }
-    
-    @Transactional
+
+    @Transactional(readOnly = false)
     @Override
     public void guardarDamnificadoAlbergue(List<AlbAlbergue> lista) {
-       try {
+        try {
             for (AlbAlbergue obje : lista) {
                 getAlbDamnificadoDao().guardarDamnificadoAlbergue(obje);
             }
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
 
-        }}
-
-   
+        }
+    }
 
 }

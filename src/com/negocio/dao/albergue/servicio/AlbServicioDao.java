@@ -5,7 +5,9 @@
  */
 package com.negocio.dao.albergue.servicio;
 
+import com.persistencia.albergue.ServicioSituacionAlbergue;
 import com.persistencia.albergue.servicio.AlbServicio;
+import com.persistencia.general.sistema.AlbEmpresa;
 import java.util.List;
 
 /**
@@ -13,6 +15,13 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbServicioDao {
+
     public List<AlbServicio> listarServicio();
+
+    public void guardarEmpresa(AlbEmpresa albEmpresa);
+
+    public void guardarServicio(AlbServicio albServicio);
+    
+    public void guardarServicioSituacionAlbergue(ServicioSituacionAlbergue servicioSituacionAlbergue);
 
 }

@@ -49,7 +49,8 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
     public List<AlbProvincia> listarProvincia() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT pro FROM AlbProvincia pro").list();
+                    .getCurrentSession().createQuery("SELECT pro FROM AlbProvincia pro"
+                     + "  WHERE  pro.proEstado = '" + 1 + "'").list();
             return list;
 
         } catch (HibernateException ex) {
@@ -62,7 +63,8 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
     public List<AlbCanton> listarCanton() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT canton FROM AlbCanton canton").list();
+                    .getCurrentSession().createQuery("SELECT canton FROM AlbCanton canton"
+                            + "  WHERE  canton.canEstado = '" + 1 + "'").list();
             return list;
 
         } catch (HibernateException ex) {
@@ -75,7 +77,8 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
     public List<AlbParroquia> listarParroquia() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT parroquia FROM AlbParroquia parroquia").list();
+                    .getCurrentSession().createQuery("SELECT parroquia FROM AlbParroquia parroquia"
+                            + "  WHERE  parroquia.parEstado = '" + 1 + "'").list();
             return list;
 
         } catch (HibernateException ex) {
@@ -88,7 +91,8 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
     public List<AlbAvanceImplementacion> listarAvanceImplementacion() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT avaIm FROM AlbAvanceImplementacion avaIm").list();
+                    .getCurrentSession().createQuery("SELECT avaIm FROM AlbAvanceImplementacion avaIm"
+                            + "  WHERE  avaIm.avaEstado = '" + 1 + "'").list();
             return list;
 
         } catch (HibernateException ex) {
