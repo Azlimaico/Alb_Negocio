@@ -66,9 +66,9 @@ public class AlbDamnificadoDaoImpl implements AlbDamnificadoDao, Serializable {
     public void guardarEliminarDamnificado(AlbDamnificado albDamnificado) {
         try {
             sessionFactory.getCurrentSession().saveOrUpdate(albDamnificado);
-        } catch (HibernateException ex) {
+           } catch (HibernateException ex) {
 
-            LOG.error("Error: Ya Existe el Albergue" + ex.getMessage());
+            LOG.error("Error: Ya Existe el Damnificado" + ex.getMessage());
 
         }
     }

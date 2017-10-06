@@ -26,5 +26,7 @@ public interface AlbServicioDao {
     public void guardarServicioSituacionAlbergue(ServicioSituacionAlbergue servicioSituacionAlbergue);
     
     public void guardarSituacion(AlbSituacion albSituacion);
-
+    
+    public void guardarSituacionEliminar(AlbSituacion albSituacion);
+    
 }

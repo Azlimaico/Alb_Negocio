@@ -83,14 +83,25 @@ public class AlbServicioServicioImpl implements AlbServicioServicio, Serializabl
 
         }
     }
-    
+
     @Transactional(readOnly = false)
     @Override
     public void guardarSituacion(List<AlbSituacion> listaSituacion) {
-    try {
+        try {
             for (AlbSituacion obje : listaSituacion) {
                 getAlbServicioDao().guardarSituacion(obje);
             }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarServicioEliminar(AlbSituacion albSituacion) {
+        try {
+            getAlbServicioDao().guardarSituacionEliminar(albSituacion);
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
 

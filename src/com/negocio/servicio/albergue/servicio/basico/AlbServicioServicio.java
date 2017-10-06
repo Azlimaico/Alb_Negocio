@@ -26,4 +26,6 @@ public interface AlbServicioServicio {
     public void guardarServicioSituacionAlbergue(List<ServicioSituacionAlbergue> listaServicioSituacionAlbergue);
     
     public void guardarSituacion(List<AlbSituacion> listaSituacion);
+    
+    public void guardarServicioEliminar(AlbSituacion albSituacion);
 }

@@ -87,4 +87,15 @@ public class AlbServicioDaoImpl implements AlbServicioDao, Serializable {
         }
     }
 
+    @Override
+    public void guardarSituacionEliminar(AlbSituacion albSituacion) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albSituacion);
+        } catch (HibernateException ex) {
+
+            LOG.error("Error: Ya Existe el Servicio" + ex.getMessage());
+
+        }
+    }
+
 }
