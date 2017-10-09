@@ -5,10 +5,13 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbFuerza;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbFuerzaServicio {
-    
+    public List<AlbFuerza> listarFuerza();
 }

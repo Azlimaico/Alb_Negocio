@@ -5,10 +5,13 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbRango;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbRangoServicio {
-    
+    public List<AlbRango> listarRango();
 }

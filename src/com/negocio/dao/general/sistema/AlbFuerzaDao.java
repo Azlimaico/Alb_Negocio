@@ -5,10 +5,13 @@
  */
 package com.negocio.dao.general.sistema;
 
+import com.persistencia.general.sistema.AlbFuerza;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbFuerzaDao {
-    
+    public List<AlbFuerza> listarFuerza();
 }

@@ -5,10 +5,16 @@
  */
 package com.negocio.dao.seguridad.sistema;
 
+import com.persistencia.seguridad.sistema.AlbPersonalAdministrativo;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbPersonalAdministrativoDao {
     
+    public List<AlbPersonalAdministrativo> listarPersonalAdministrativo();
+    
+    public void guardarPersonalAdministrativo(AlbPersonalAdministrativo albPersonalAdministrativo);
 }

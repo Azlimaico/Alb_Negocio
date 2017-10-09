@@ -37,7 +37,8 @@ public class AlbProfesionDaoImpl implements AlbProfesionDao, Serializable {
     public List<AlbProfesion> listarProfesion() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT profesion FROM AlbProfesion profesion").list();
+                    .getCurrentSession().createQuery("SELECT profesion FROM AlbProfesion profesion"
+                    + "  WHERE  profesion.prfEstado = '" + 1 + "' order by profesion.prfId desc").list();
             return list;
 
         } catch (HibernateException ex) {

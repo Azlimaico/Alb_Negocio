@@ -36,7 +36,8 @@ public class AlbEstadoCivilDaoImpl implements AlbEstadoCivilDao, Serializable {
     public List<AlbEstadoCivil> listarEstadoCivil() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT estCivil FROM AlbEstadoCivil estCivil").list();
+                    .getCurrentSession().createQuery("SELECT estCivil FROM AlbEstadoCivil estCivil"
+                     + "  WHERE  estCivil.eciEstado = '" + 1 + "' order by estCivil.eciId desc").list();
             return list;
 
         } catch (HibernateException ex) {
