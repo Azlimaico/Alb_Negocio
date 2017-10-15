@@ -13,5 +13,10 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbFuerzaServicio {
+
     public List<AlbFuerza> listarFuerza();
+
+    public void guardarFuerza(List<AlbFuerza> Fuerza);
+
+    public void guardarFuerzaEl(AlbFuerza albFuerza);
 }

@@ -60,4 +60,14 @@ public class AlbPersonalAdministrativoDaoImpl implements AlbPersonalAdministrati
         }
     }
 
+    @Override
+    public void guardarPerAdmin(AlbPersonalAdministrativo albPersonalAdministrativo) {
+       try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albPersonalAdministrativo);
+        } catch (HibernateException ex) {
+
+            LOG.error(ex.getMessage());
+
+        }}
+
 }

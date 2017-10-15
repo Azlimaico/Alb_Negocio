@@ -17,4 +17,6 @@ public interface AlbPersonalAdministrativoDao {
     public List<AlbPersonalAdministrativo> listarPersonalAdministrativo();
     
     public void guardarPersonalAdministrativo(AlbPersonalAdministrativo albPersonalAdministrativo);
+    
+    public void guardarPerAdmin(AlbPersonalAdministrativo albPersonalAdministrativo);
 }

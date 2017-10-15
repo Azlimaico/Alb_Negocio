@@ -55,4 +55,15 @@ public class AlbPersonalAdministrativoServicioImpl implements AlbPersonalAdminis
         }
     }
 
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarPerAdmin(AlbPersonalAdministrativo albPersonalAdministrativo) {
+        try {
+            getAlbPersonalAdministrativoDao().guardarPerAdmin(albPersonalAdministrativo);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
 }

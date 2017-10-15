@@ -13,5 +13,10 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbProfesionServicio {
+
     public List<AlbProfesion> listarProfesion();
+
+    public void guardarProfesion(List<AlbProfesion> Profesion);
+    
+    public void guardarProfesionEl(AlbProfesion albProfesion);
 }

@@ -13,5 +13,8 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbRangoDao {
-     public List<AlbRango> listarRango();
+
+    public List<AlbRango> listarRango();
+
+    public void guardarRango(AlbRango albRango);
 }

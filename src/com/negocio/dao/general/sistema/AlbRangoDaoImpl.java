@@ -47,5 +47,14 @@ public class AlbRangoDaoImpl implements AlbRangoDao, Serializable {
         }
     }
 
+    @Override
+    public void guardarRango(AlbRango albRango) {
+       try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albRango);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        } 
+    }
+
     
 }

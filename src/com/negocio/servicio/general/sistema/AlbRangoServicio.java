@@ -13,5 +13,10 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbRangoServicio {
+
     public List<AlbRango> listarRango();
+
+    public void guardarRango(List<AlbRango> Rango);
+
+    public void guardarRangoEl(AlbRango albRango);
 }

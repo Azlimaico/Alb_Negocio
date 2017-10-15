@@ -9,6 +9,7 @@ import com.negocio.dao.general.sistema.AlbFuerzaDao;
 import com.persistencia.general.sistema.AlbFuerza;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.jboss.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +41,30 @@ public class AlbFuerzaServicioImpl implements AlbFuerzaServicio, Serializable {
 
     public void setAlbFuerzaDao(AlbFuerzaDao albFuerzaDao) {
         this.albFuerzaDao = albFuerzaDao;
+    }
+    
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarFuerza(List<AlbFuerza> Fuerza) {
+        try {
+            for (AlbFuerza obje : Fuerza) {
+                getAlbFuerzaDao().guardarFuerza(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarFuerzaEl(AlbFuerza albFuerza) {
+       try {
+            getAlbFuerzaDao().guardarFuerza(albFuerza);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        } 
     }
 
 }

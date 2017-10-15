@@ -9,6 +9,7 @@ import com.negocio.dao.general.sistema.AlbProfesionDao;
 import com.persistencia.general.sistema.AlbProfesion;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.jboss.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,6 +42,29 @@ public class AlbProfesionServicioImpl implements AlbProfesionServicio, Serializa
     public void setAlbProfesionDao(AlbProfesionDao albProfesionDao) {
         this.albProfesionDao = albProfesionDao;
     }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarProfesion(List<AlbProfesion> Profesion) {
+        try {
+            for (AlbProfesion obje : Profesion) {
+                getAlbProfesionDao().guardarProfesion(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
     
+    @Transactional
+    @Override
+    public void guardarProfesionEl(AlbProfesion albProfesion) {
+        try {
+            getAlbProfesionDao().guardarProfesion(albProfesion);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
 
 }

@@ -18,4 +18,5 @@ public interface AlbPersonalAdministrativoServicio {
     
     public void guardarPersonalAdmin(List<AlbPersonalAdministrativo> lista);
     
+    public void guardarPerAdmin(AlbPersonalAdministrativo albPersonalAdministrativo);
 }

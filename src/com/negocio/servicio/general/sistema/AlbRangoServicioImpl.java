@@ -9,6 +9,7 @@ import com.negocio.dao.general.sistema.AlbRangoDao;
 import com.persistencia.general.sistema.AlbRango;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.jboss.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,4 +43,28 @@ public class AlbRangoServicioImpl implements AlbRangoServicio, Serializable {
         this.albRangoDao = albRangoDao;
     }
     
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarRango(List<AlbRango> Rango) {
+        try {
+            for (AlbRango obje : Rango) {
+                getAlbRangoDao().guardarRango(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarRangoEl(AlbRango albRango) {
+       try {
+            getAlbRangoDao().guardarRango(albRango);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        } 
+    }
+
 }

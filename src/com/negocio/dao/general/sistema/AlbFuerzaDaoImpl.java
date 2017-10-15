@@ -47,4 +47,13 @@ public class AlbFuerzaDaoImpl implements AlbFuerzaDao, Serializable {
         }
     }
 
+    @Override
+    public void guardarFuerza(AlbFuerza albFuerza) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albFuerza);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        }
+    }
+
 }

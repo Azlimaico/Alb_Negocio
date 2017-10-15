@@ -13,6 +13,9 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbProfesionDao {
-     public List<AlbProfesion> listarProfesion();
+
+    public List<AlbProfesion> listarProfesion();
+
+    public void guardarProfesion(AlbProfesion AlbProfesion);
     
 }
