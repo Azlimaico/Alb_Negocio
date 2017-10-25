@@ -15,4 +15,6 @@ import java.util.List;
 public interface AlbDiscapacidadDao {
     
     public List<AlbDiscapacidad> listarDiscapacidad();
+    
+    public void guardarDisca(AlbDiscapacidad albDiscapacidad);
 }

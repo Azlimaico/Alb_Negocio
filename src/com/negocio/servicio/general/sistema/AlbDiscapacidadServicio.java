@@ -13,6 +13,11 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbDiscapacidadServicio {
+
     public List<AlbDiscapacidad> listarDiscapacidad();
-    
+
+    public void guardarDisca(List<AlbDiscapacidad> Disca);
+
+    public void guardarDiscaEl(AlbDiscapacidad albDiscapacidad);
+
 }

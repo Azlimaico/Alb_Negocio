@@ -37,13 +37,23 @@ public class AlbFamiliaDaoImpl implements AlbFamiliaDao, Serializable {
     public List<AlbFamilia> listarFamilia() {
        try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT flia FROM AlbFamilia flia").list();
+                    .getCurrentSession().createQuery("SELECT flia FROM AlbFamilia flia"
+                     + "  WHERE  flia.famEstado = '" + 1 + "' order by flia.famId desc").list();
             return list;
 
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
         }  }
+
+    @Override
+    public void guardarFlia(AlbFamilia albFamilia) {
+         try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albFamilia);
+        } catch (HibernateException ex) {
+            LOG.error("Error YA EXISTE LA FLIA: " + ex.getMessage());
+        }  
+    }
 
     
 }

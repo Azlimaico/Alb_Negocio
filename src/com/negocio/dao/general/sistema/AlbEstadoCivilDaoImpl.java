@@ -37,12 +37,21 @@ public class AlbEstadoCivilDaoImpl implements AlbEstadoCivilDao, Serializable {
         try {
             List list = sessionFactory
                     .getCurrentSession().createQuery("SELECT estCivil FROM AlbEstadoCivil estCivil"
-                     + "  WHERE  estCivil.eciEstado = '" + 1 + "' order by estCivil.eciId desc").list();
+                            + "  WHERE  estCivil.eciEstado = '" + 1 + "' order by estCivil.eciId desc").list();
             return list;
 
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
-        } }
-    
+        }
+    }
+
+    @Override
+    public void guardarEstadoCivil(AlbEstadoCivil albEstadoCivil) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albEstadoCivil);
+        } catch (HibernateException ex) {
+            LOG.error("Error YA EXISTE EL ESTADO CIVIL: " + ex.getMessage());
+        }
+    }
 }

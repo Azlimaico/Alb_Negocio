@@ -14,4 +14,8 @@ import java.util.List;
  */
 public interface AlbInstruccionServicio {
      public List<AlbInstruccion> listarInstruccion();
+     
+     public void guardarInstruccion(List<AlbInstruccion> Instruccion);
+     
+      public void guardarInstruccionEl(AlbInstruccion albInstruccion);
 }

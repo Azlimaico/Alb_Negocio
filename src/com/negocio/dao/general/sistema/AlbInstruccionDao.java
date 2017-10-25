@@ -13,6 +13,8 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbInstruccionDao {
+
     public List<AlbInstruccion> listarInstruccion();
-    
+
+    public void guardarInstruccion(AlbInstruccion albInstruccion);
 }

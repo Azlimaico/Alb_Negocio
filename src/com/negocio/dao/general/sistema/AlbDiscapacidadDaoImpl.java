@@ -37,13 +37,23 @@ public class AlbDiscapacidadDaoImpl implements AlbDiscapacidadDao, Serializable 
     public List<AlbDiscapacidad> listarDiscapacidad() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT disca FROM AlbDiscapacidad disca").list();
+                    .getCurrentSession().createQuery("SELECT disca FROM AlbDiscapacidad disca"
+                    + "  WHERE  disca.disEstado = '" + 1 + "' order by disca.disId desc").list();
             return list;
 
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public void guardarDisca(AlbDiscapacidad albDiscapacidad) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albDiscapacidad);
+        } catch (HibernateException ex) {
+            LOG.error("Error YA EXISTE LA DISCAPACIDAD: " + ex.getMessage());
+        } 
     }
 
 

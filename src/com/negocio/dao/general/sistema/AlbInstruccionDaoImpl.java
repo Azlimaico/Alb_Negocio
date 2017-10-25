@@ -37,13 +37,23 @@ public class AlbInstruccionDaoImpl implements AlbInstruccionDao, Serializable {
     public List<AlbInstruccion> listarInstruccion() {
         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery("SELECT instruccion FROM AlbInstruccion instruccion").list();
+                    .getCurrentSession().createQuery("SELECT instruccion FROM AlbInstruccion instruccion"
+                    + "  WHERE  instruccion.insEstado = '" + 1 + "' order by instruccion.insId desc").list();
             return list;
 
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public void guardarInstruccion(AlbInstruccion albInstruccion) {
+      try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albInstruccion);
+        } catch (HibernateException ex) {
+            LOG.error("Error YA EXISTE LA INSTRUCCION: " + ex.getMessage());
+        }  
     }
 
 }

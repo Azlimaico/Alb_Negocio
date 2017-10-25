@@ -9,6 +9,7 @@ import com.negocio.dao.general.sistema.AlbInstruccionDao;
 import com.persistencia.general.sistema.AlbInstruccion;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.jboss.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +41,30 @@ public class AlbInstruccionServicioImpl implements AlbInstruccionServicio, Seria
 
     public void setAlbInstruccionDao(AlbInstruccionDao albInstruccionDao) {
         this.albInstruccionDao = albInstruccionDao;
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarInstruccion(List<AlbInstruccion> Instruccion) {
+        try {
+            for (AlbInstruccion obje : Instruccion) {
+                getAlbInstruccionDao().guardarInstruccion(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarInstruccionEl(AlbInstruccion albInstruccion) {
+        try {
+            getAlbInstruccionDao().guardarInstruccion(albInstruccion);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            
+        }
     }
 
 }

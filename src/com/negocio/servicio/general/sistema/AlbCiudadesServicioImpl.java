@@ -42,11 +42,6 @@ public class AlbCiudadesServicioImpl implements AlbCiudadesServicio, Serializabl
         }
     }
 
-    @Override
-    public void eliminarProvincia(List<AlbProvincia> listaProvincia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Transactional(readOnly = false)
     @Override
     public List<AlbProvincia> listarProvincias() {
@@ -152,7 +147,7 @@ public class AlbCiudadesServicioImpl implements AlbCiudadesServicio, Serializabl
             return null;
         }
     }
-        
+
     @Transactional
     @Override
     public List<AlbParroquia> ListParroquiaCmbx(Long IsSeleccionCanton) {
@@ -161,6 +156,65 @@ public class AlbCiudadesServicioImpl implements AlbCiudadesServicio, Serializabl
         } catch (Exception ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarProvinciaEl(AlbProvincia albProvincia) {
+        try {
+            getAlbCiudadesDao().guardarProvincia(albProvincia);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarCanton(List<AlbCanton> listaCanton) {
+        try {
+            for (AlbCanton obj : listaCanton) {
+                getAlbCiudadesDao().guardarCanton(obj);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarCantonEl(AlbCanton albCanton) {
+        try {
+            getAlbCiudadesDao().guardarCanton(albCanton);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarParroquia(List<AlbParroquia> listaParroquia) {
+        try {
+            for (AlbParroquia obj : listaParroquia) {
+                getAlbCiudadesDao().guardarParroquia(obj);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarParroquiaEl(AlbParroquia albParroquia) {
+         try {
+            getAlbCiudadesDao().guardarParroquia(albParroquia);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+
         }
     }
 

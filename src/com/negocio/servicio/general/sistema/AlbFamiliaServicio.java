@@ -15,4 +15,8 @@ import java.util.List;
 public interface AlbFamiliaServicio {
     public List<AlbFamilia> listarFamilia();
     
+    public void guardarFlia(List<AlbFamilia> Flia);
+    
+    public void guardarFliaEl(AlbFamilia albFamilia);
+    
 }

@@ -9,6 +9,7 @@ import com.negocio.dao.general.sistema.AlbDiscapacidadDao;
 import com.persistencia.general.sistema.AlbDiscapacidad;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.jboss.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +41,30 @@ public class AlbDiscapacidadServicioImpl implements AlbDiscapacidadServicio, Ser
 
     public void setAlbDiscapacidadDao(AlbDiscapacidadDao albDiscapacidadDao) {
         this.albDiscapacidadDao = albDiscapacidadDao;
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarDisca(List<AlbDiscapacidad> Disca) {
+       try {
+            for (AlbDiscapacidad obje : Disca) {
+                getAlbDiscapacidadDao().guardarDisca(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            
+        } 
+    }
+
+    @Transactional
+    @Override
+    public void guardarDiscaEl(AlbDiscapacidad albDiscapacidad) {
+        try {
+            getAlbDiscapacidadDao().guardarDisca(albDiscapacidad);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            
+        }
     }
 
 }

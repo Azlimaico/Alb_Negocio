@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.negocio.dao.general.sistema;
+package com.negocio.servicio.general.sistema;
 
-import com.persistencia.general.sistema.AlbFamilia;
+import com.persistencia.general.sistema.AlbProvincia;
 import java.util.List;
 
 /**
  *
  * @author Zulay
  */
-public interface AlbFamiliaDao {
+public interface AlbProvinciaServicio {
 
-    public List<AlbFamilia> listarFamilia();
-
-    public void guardarFlia(AlbFamilia albFamilia);
-
+    public List<AlbProvincia> listarProvincia();
 }

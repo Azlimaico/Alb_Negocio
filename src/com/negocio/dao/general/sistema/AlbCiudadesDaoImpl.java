@@ -50,7 +50,7 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
         try {
             List list = sessionFactory
                     .getCurrentSession().createQuery("SELECT pro FROM AlbProvincia pro"
-                     + "  WHERE  pro.proEstado = '" + 1 + "'").list();
+                            + "  WHERE  pro.proEstado = '" + 1 + "' order by pro.proId desc" ).list();
             return list;
 
         } catch (HibernateException ex) {
@@ -64,7 +64,8 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
         try {
             List list = sessionFactory
                     .getCurrentSession().createQuery("SELECT canton FROM AlbCanton canton"
-                            + "  WHERE  canton.canEstado = '" + 1 + "'").list();
+                            + " JOIN FETCH canton.albProvincia prov" 
+                            + "  WHERE  canton.canEstado = '" + 1 + "' order by canton.canId desc").list();
             return list;
 
         } catch (HibernateException ex) {
@@ -78,7 +79,9 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
         try {
             List list = sessionFactory
                     .getCurrentSession().createQuery("SELECT parroquia FROM AlbParroquia parroquia"
-                            + "  WHERE  parroquia.parEstado = '" + 1 + "'").list();
+                            + " JOIN FETCH parroquia.albCanton canton"
+                            + " JOIN FETCH canton.albProvincia provi"
+                            + " WHERE  parroquia.parEstado = '" + 1 + "' order by parroquia.parId desc").list();
             return list;
 
         } catch (HibernateException ex) {
@@ -154,6 +157,24 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
             LOG.error("Error: " + ex.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public void guardarCanton(AlbCanton albCanton) {
+     try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albCanton);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        }   
+    }
+
+    @Override
+    public void guardarParroquia(AlbParroquia albParroquia) {
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(albParroquia);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+        } 
     }
 
 }

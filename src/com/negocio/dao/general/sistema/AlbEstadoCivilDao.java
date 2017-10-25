@@ -13,6 +13,8 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbEstadoCivilDao {
+
     public List<AlbEstadoCivil> listarEstadoCivil();
-    
+
+    public void guardarEstadoCivil(AlbEstadoCivil albEstadoCivil);
 }

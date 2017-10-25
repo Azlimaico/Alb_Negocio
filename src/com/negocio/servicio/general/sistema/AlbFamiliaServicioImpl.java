@@ -9,6 +9,7 @@ import com.negocio.dao.general.sistema.AlbFamiliaDao;
 import com.persistencia.general.sistema.AlbFamilia;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.jboss.logging.Logger;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +41,30 @@ public class AlbFamiliaServicioImpl implements AlbFamiliaServicio, Serializable 
 
     public void setAlbFamiliaDao(AlbFamiliaDao albFamiliaDao) {
         this.albFamiliaDao = albFamiliaDao;
+    }
+
+    @Transactional(readOnly = false)
+    @Override
+    public void guardarFlia(List<AlbFamilia> Flia) {
+         try {
+            for (AlbFamilia obje : Flia) {
+                getAlbFamiliaDao().guardarFlia(obje);
+            }
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            
+        }
+    }
+
+    @Transactional
+    @Override
+    public void guardarFliaEl(AlbFamilia albFamilia) {
+        try {
+            getAlbFamiliaDao().guardarFlia(albFamilia);
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            
+        }
     }
     
 
