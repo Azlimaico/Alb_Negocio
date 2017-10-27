@@ -5,10 +5,19 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbAvanceImplementacion;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbAvanceImplementacionServicio {
-    
+
+    public List<AlbAvanceImplementacion> listarAvanceImplementacion();
+
+    public void guardarAvanceI(List<AlbAvanceImplementacion> avanceI);
+
+    public void guardarAvanceIEl(AlbAvanceImplementacion albAvanceImplementacion);
+
 }

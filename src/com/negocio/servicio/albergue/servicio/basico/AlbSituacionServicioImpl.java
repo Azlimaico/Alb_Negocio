@@ -34,15 +34,14 @@ public class AlbSituacionServicioImpl implements AlbSituacionServicio, Serializa
         }
     }
 
-
-public AlbSituacionDao getAlbSituacionDao() {
+    public AlbSituacionDao getAlbSituacionDao() {
         return albSituacionDao;
     }
 
     public void setAlbSituacionDao(AlbSituacionDao albSituacionDao) {
         this.albSituacionDao = albSituacionDao;
     }
-    
+
     @Transactional(readOnly = false)
     @Override
     public List<AlbTipoEmpresa> listarTipoEmpresa() {
@@ -52,7 +51,7 @@ public AlbSituacionDao getAlbSituacionDao() {
         } catch (Exception ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
-        }}
-    
-    
+        }
+    }
+
 }

@@ -95,7 +95,7 @@ public class AlbCiudadesDaoImpl implements AlbCiudadesDao, Serializable {
         try {
             List list = sessionFactory
                     .getCurrentSession().createQuery("SELECT avaIm FROM AlbAvanceImplementacion avaIm"
-                            + "  WHERE  avaIm.avaEstado = '" + 1 + "'").list();
+                            + "  WHERE  avaIm.avaEstado = '" + 1 + "' order by avaIm.avaId desc ").list();
             return list;
 
         } catch (HibernateException ex) {

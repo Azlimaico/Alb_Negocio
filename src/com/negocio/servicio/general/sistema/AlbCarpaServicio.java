@@ -5,10 +5,21 @@
  */
 package com.negocio.servicio.general.sistema;
 
+import com.persistencia.general.sistema.AlbCarpa;
+import com.persistencia.general.sistema.AlbTipoCarpa;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbCarpaServicio {
+
+    public List<AlbCarpa> listarCarpa();
     
+     public List<AlbTipoCarpa> listarTipoCarpa();
+     
+     public void guardarCarpa(List<AlbCarpa> albCarpa);
+     
+     public void guardarCarpaEl(AlbCarpa albCarpa);
 }

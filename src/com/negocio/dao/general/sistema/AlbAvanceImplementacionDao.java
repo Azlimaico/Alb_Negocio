@@ -5,10 +5,16 @@
  */
 package com.negocio.dao.general.sistema;
 
+import com.persistencia.general.sistema.AlbAvanceImplementacion;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbAvanceImplementacionDao {
     
+    public List<AlbAvanceImplementacion> listarAvanceI();
+    
+    public void guardarAvanceI(AlbAvanceImplementacion albAvanceImplementacion);
 }
