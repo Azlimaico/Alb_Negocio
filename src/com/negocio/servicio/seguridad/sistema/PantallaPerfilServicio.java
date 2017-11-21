@@ -5,10 +5,20 @@
  */
 package com.negocio.servicio.seguridad.sistema;
 
+import com.persistencia.seguridad.sistema.AlbPantalla;
+import com.persistencia.seguridad.sistema.PantallaPerfil;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface PantallaPerfilServicio {
+
+    public void guardarPantallaPerfil(PantallaPerfil pantallaPerfil);
     
+    public List<PantallaPerfil> listarPantallaPerfil(Long perfil) ;
+    
+     
+
 }

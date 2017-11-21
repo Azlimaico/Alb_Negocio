@@ -5,19 +5,16 @@
  */
 package com.negocio.servicio.seguridad.sistema;
 
-import com.persistencia.seguridad.sistema.AlbMenu;
+import com.persistencia.seguridad.sistema.PerAdministrativoAlberguePerfil;
 import java.util.List;
 
 /**
  *
  * @author Zulay
  */
-public interface AlbMenuServicio {
+public interface PerAdministrativoAlberguePerfilServicio {
+
+    public List<PerAdministrativoAlberguePerfil> listarUsuario();
     
-    public List<AlbMenu> listarMenu();
-    
-    public void guardarMenu(List<AlbMenu> Menu);
-    
-    public void guardarMenuEl(AlbMenu albMenu);
-    
+    public void guardarUsuario(PerAdministrativoAlberguePerfil perAdministrativoAlberguePerfil);
 }

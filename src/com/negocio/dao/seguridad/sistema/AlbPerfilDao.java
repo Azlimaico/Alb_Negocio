@@ -5,10 +5,20 @@
  */
 package com.negocio.dao.seguridad.sistema;
 
+import com.persistencia.seguridad.sistema.AlbPantalla;
+import com.persistencia.seguridad.sistema.AlbPerfil;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbPerfilDao {
+
+    public List<AlbPerfil> listarPerfil();
     
+    public void guardarPerfil(AlbPerfil albPerfil);
+    
+    public void guardarPerfilPantalla1(AlbPantalla perfilPantalla);
+
 }

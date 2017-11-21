@@ -5,20 +5,16 @@
  */
 package com.negocio.dao.seguridad.sistema;
 
-
-import com.persistencia.seguridad.sistema.AlbPantalla;
-import com.persistencia.seguridad.sistema.PantallaPerfil;
+import com.persistencia.seguridad.sistema.PerAdministrativoAlberguePerfil;
 import java.util.List;
 
 /**
  *
  * @author Zulay
  */
-public interface PantallaPerfilDao {
+public interface PerAdministrativoAlberguePerfilDao {
 
-    public void guardarPantallaPerfil(PantallaPerfil pantallaPerfil);
-
-    public List<PantallaPerfil> listarPantallaPerfil(Long perfil);
+    public List<PerAdministrativoAlberguePerfil> listarUsuario();
     
-    
+    public void guardarUsuario(PerAdministrativoAlberguePerfil perAdministrativoAlberguePerfil);
 }

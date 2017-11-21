@@ -5,10 +5,21 @@
  */
 package com.negocio.servicio.seguridad.sistema;
 
+import com.persistencia.seguridad.sistema.AlbPantalla;
+import com.persistencia.seguridad.sistema.AlbPerfil;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbPerfilServicio {
+
+    public List<AlbPerfil> listarPerfil();
     
+    public void guardarPerfil(List<AlbPerfil> Perfil);
+    
+    public void guardarPerfilEl(AlbPerfil albPerfil);
+    
+    public void guardarPerfilPantalla1(List<AlbPantalla> lista);
 }

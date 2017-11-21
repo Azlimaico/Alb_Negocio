@@ -5,10 +5,21 @@
  */
 package com.negocio.servicio.seguridad.sistema;
 
+import com.persistencia.seguridad.sistema.AlbPantalla;
+import java.util.List;
+
 /**
  *
  * @author Zulay
  */
 public interface AlbPantallaServicio {
+    
+    public List<AlbPantalla> listarPantalla();
+    
+    public void guardarPantalla(List<AlbPantalla> Pantalla);
+    
+    public void guardarPantallaEl(AlbPantalla albPantalla);
+    
+    public void guardarPantallaPerfil(List<AlbPantalla> lista);
     
 }
