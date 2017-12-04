@@ -17,4 +17,7 @@ public interface PerAdministrativoAlberguePerfilDao {
     public List<PerAdministrativoAlberguePerfil> listarUsuario();
     
     public void guardarUsuario(PerAdministrativoAlberguePerfil perAdministrativoAlberguePerfil);
-}
+    
+    public PerAdministrativoAlberguePerfil listarUsuContra(String nombre,String clave);
+    
+    }

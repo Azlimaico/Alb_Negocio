@@ -39,7 +39,8 @@ public class AlbPerfilDaoImpl implements AlbPerfilDao, Serializable {
         try {
             List list = sessionFactory
                     .getCurrentSession().createQuery(" select perfil"
-                            + " from AlbPerfil perfil ").list();
+                            + " from AlbPerfil perfil "
+                    + "  WHERE  perfil.perEstado = '" + 1 + "' order by perfil.perId desc").list();
             return list;
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());

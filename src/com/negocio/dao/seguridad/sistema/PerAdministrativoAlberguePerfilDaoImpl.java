@@ -59,4 +59,22 @@ public class PerAdministrativoAlberguePerfilDaoImpl implements PerAdministrativo
         }
     }
 
+    @Override
+    public PerAdministrativoAlberguePerfil listarUsuContra(String nombre, String clave) {
+        try {
+            Object objectUsuario = sessionFactory
+                    .getCurrentSession().createQuery(" select obj"
+                            + " from PerAdministrativoAlberguePerfil obj join fetch obj.albPerfil perf "
+                            + " join fetch obj.albAlbergue albergue "
+                            + " join fetch obj.albPersonalAdministrativo perAdm "
+                            + "where obj.padEstado=1 and obj.padUsuario='" + nombre + "' and obj.padContrasenia='" + clave + "'").uniqueResult();
+            return (PerAdministrativoAlberguePerfil) objectUsuario;
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            return null;
+        }
+    }
+
+   
+
 }

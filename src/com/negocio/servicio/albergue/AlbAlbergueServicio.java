@@ -14,8 +14,11 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbAlbergueServicio {
+
     public List<AlbAlbergue> listarAlbergue();
+
     public void guardarJuego(List<AlbAlbergue> lista);
+
     public List<AlbProvincia> listarItemsProvincia(Long IdSeleccion, String provincia);
-   
+
 }

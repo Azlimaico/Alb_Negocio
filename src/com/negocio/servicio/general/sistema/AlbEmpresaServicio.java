@@ -6,6 +6,7 @@
 package com.negocio.servicio.general.sistema;
 
 import com.persistencia.albergue.AlbAlbergue;
+import com.persistencia.general.sistema.AlbEmpresa;
 import java.util.List;
 
 
@@ -14,6 +15,6 @@ import java.util.List;
  * @author Zulay
  */
 public interface AlbEmpresaServicio {
-    public List<AlbAlbergue> listarAlbergue();
-    
+        
+    public List<AlbEmpresa> listarEmpresaCmbx(Long IdSeleccion);
 }

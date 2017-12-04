@@ -20,5 +20,6 @@ public interface PantallaPerfilDao {
 
     public List<PantallaPerfil> listarPantallaPerfil(Long perfil);
     
+    public List<PantallaPerfil> listarPantallaPerfilByPerfilId(Long idPerfil);
     
 }

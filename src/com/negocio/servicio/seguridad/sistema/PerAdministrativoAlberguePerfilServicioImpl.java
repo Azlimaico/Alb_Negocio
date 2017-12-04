@@ -52,6 +52,19 @@ public class PerAdministrativoAlberguePerfilServicioImpl implements PerAdministr
 
         }
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public PerAdministrativoAlberguePerfil listarUsuContra(String nombre, String contrasenia) {
+         try {
+            return getPerAdministrativoAlberguePerfilDao().listarUsuContra(nombre, contrasenia);
+        } catch (Exception ex) {
+            LOG.error("Error: " + ex.getMessage());
+            return null;
+        }
+    }
+
+    
     
     
     

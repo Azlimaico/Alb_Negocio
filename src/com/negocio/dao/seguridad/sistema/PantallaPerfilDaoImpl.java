@@ -64,6 +64,21 @@ public class PantallaPerfilDaoImpl implements PantallaPerfilDao, Serializable {
         }
     }
 
+    @Override
+    public List<PantallaPerfil> listarPantallaPerfilByPerfilId(Long idPerfil) {
+        try {
+            List list = sessionFactory
+                    .getCurrentSession().createQuery(" select obj"
+                            + " from PantallaPerfil obj join fetch obj.albPantalla pam "
+                            + " join fetch pam.albMenu men "
+                            + " where obj.albPerfil.perId=" + idPerfil + " ").list();
+            return list;
+        } catch (HibernateException ex) {
+            LOG.error("Error: " + ex.getMessage());
+            return null;
+        }
+    }
+
     
     
 }

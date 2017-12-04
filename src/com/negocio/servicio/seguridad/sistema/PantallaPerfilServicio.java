@@ -5,7 +5,6 @@
  */
 package com.negocio.servicio.seguridad.sistema;
 
-import com.persistencia.seguridad.sistema.AlbPantalla;
 import com.persistencia.seguridad.sistema.PantallaPerfil;
 import java.util.List;
 
@@ -19,6 +18,6 @@ public interface PantallaPerfilServicio {
     
     public List<PantallaPerfil> listarPantallaPerfil(Long perfil) ;
     
-     
+     public List<PantallaPerfil> listarPantallaPerfilByPerfilId(Long idPerfil);
 
 }

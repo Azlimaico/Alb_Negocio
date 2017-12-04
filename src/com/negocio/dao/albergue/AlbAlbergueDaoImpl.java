@@ -34,7 +34,8 @@ public class AlbAlbergueDaoImpl implements AlbAlbergueDao, Serializable {
                             + "JOIN fetch lab.albCanton canton "
                             + "JOIN fetch lab.albParroquia parroquia "
                             + "JOIN fetch lab.albProvincia provincia "
-                            + "JOIN fetch lab.albAvanceImplementacion avanceImplementacion"
+                            + "JOIN fetch lab.albAvanceImplementacion avanceImplementacion "
+                            + "JOIN fetch lab.albTipoAlbergue tipA"
                             + "  WHERE  lab.albEstado = '" + 1 + "' order by lab.albId desc").list();
             return list;
         } catch (HibernateException ex) {

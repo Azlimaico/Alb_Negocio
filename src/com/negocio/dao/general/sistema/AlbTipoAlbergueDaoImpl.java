@@ -5,9 +5,7 @@
  */
 package com.negocio.dao.general.sistema;
 
-import com.negocio.dao.albergue.AlbAlbergueDao;
-import com.negocio.dao.albergue.AlbAlbergueDaoImpl;
-import com.persistencia.general.sistema.AlbEmpresa;
+import com.persistencia.general.sistema.AlbTipoAlbergue;
 import java.io.Serializable;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,11 +13,14 @@ import org.hibernate.SessionFactory;
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class AlbEmpresaDaoImpl implements AlbEmpresaDao, Serializable {
+/**
+ *
+ * @author Zulay
+ */
+public class AlbTipoAlbergueDaoImpl implements AlbTipoAlbergueDao, Serializable {
 
     private static final long serialVersionUID = 1L;
-    private static Logger LOG = Logger.getLogger(AlbAlbergueDaoImpl.class
-    );
+    private static Logger LOG = Logger.getLogger(AlbTipoAlbergueDaoImpl.class);
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -32,18 +33,17 @@ public class AlbEmpresaDaoImpl implements AlbEmpresaDao, Serializable {
     }
 
     @Override
-    public List<AlbEmpresa> listarEmpresaCmbx(Long IdSeleccion) {
-        try {
+    public List<AlbTipoAlbergue> listarTipoAlbergue() {
+         try {
             List list = sessionFactory
-                    .getCurrentSession().createQuery(" select empresa from AlbEmpresa empresa "
-                            + " where empresa.albTipoEmpresa.tieId  ='"
-                            + IdSeleccion + "' and empresa.empEstado=1").list();
-
+                    .getCurrentSession().createQuery("SELECT tipA FROM AlbTipoAlbergue tipA"
+                            + "  WHERE  tipA.tiaEstado = '" + 1 + "' order by tipA.tiaId desc ").list();
             return list;
+
         } catch (HibernateException ex) {
             LOG.error("Error: " + ex.getMessage());
             return null;
         }
     }
-
+    
 }

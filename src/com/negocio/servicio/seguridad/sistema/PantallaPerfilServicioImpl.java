@@ -58,6 +58,17 @@ public class PantallaPerfilServicioImpl implements PantallaPerfilServicio, Seria
         }
     }
 
+    @Transactional(readOnly = true)
+    @Override
+    public List<PantallaPerfil> listarPantallaPerfilByPerfilId(Long idPerfil) {
+         try {
+            return getPantallaPerfilDao().listarPantallaPerfilByPerfilId(idPerfil);
+        } catch (Exception ex) {
+            LOG.error("Error: " + ex.getMessage());
+            return null;
+        }
+    }
+
    
     
     

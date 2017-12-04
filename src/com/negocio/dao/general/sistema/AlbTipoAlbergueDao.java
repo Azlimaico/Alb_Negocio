@@ -5,17 +5,13 @@
  */
 package com.negocio.dao.general.sistema;
 
-import com.persistencia.general.sistema.AlbEmpresa;
+import com.persistencia.general.sistema.AlbTipoAlbergue;
 import java.util.List;
-
-
 
 /**
  *
  * @author Zulay
  */
-public interface AlbEmpresaDao {
-    
-     
-     public List<AlbEmpresa> listarEmpresaCmbx(Long IdSeleccion);  
+public interface AlbTipoAlbergueDao {
+    public List<AlbTipoAlbergue> listarTipoAlbergue();
 }
